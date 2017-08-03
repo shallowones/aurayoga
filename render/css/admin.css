@@ -1,0 +1,16 @@
+#bx-help-start {
+  display: none !important;
+}
+
+.adm-workarea textarea {
+  font-family: Monaco,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.bxedmain-cont {
+  width: 100% !important;
+  height: 650px !important;
+}
+
+.adm-detail-content-cell-l {
+  width: 20%;
+}

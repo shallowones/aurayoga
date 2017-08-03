@@ -1,0 +1,53 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Места проведения", 
+		"/places/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Преподаватели", 
+		"/teachers/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Участникам", 
+		"/exhibitors/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Материалы", 
+		"/materials/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Новости", 
+		"/news/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Форум", 
+		"/forum/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Помощь проекту", 
+		"/philanthropists/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>
