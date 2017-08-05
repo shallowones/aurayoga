@@ -1,0 +1,25 @@
+div.map__c {
+  z-index: initial;
+  left: 0;
+  margin: auto;
+  position: unset;
+}
+
+div.map__b {
+  width: initial;
+  position: unset;
+  border: none;
+}
+
+div.accordion__h {
+  padding-top: 20px;
+  font-weight: bold;
+}
+
+li.accordion__i.active .accordion__h {
+  font-size: large;
+}
+
+#map {
+  max-height: 420px;
+}

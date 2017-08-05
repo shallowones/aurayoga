@@ -1,0 +1,28 @@
+div.news-list img.preview_picture
+{
+	float:left;
+	margin:0 4px 6px 0;
+}
+.news-date-time {
+	color:#486DAA;
+}
+
+#camp-filter button {
+  display: inline-block;
+  padding: 5px 15px;
+  margin-bottom: 10px;
+  background: #dedede;
+  border: none;
+  cursor: pointer;
+  float: left;
+  margin-right: 1px;
+}
+
+#camp-filter button:hover {
+  background-color: #D294CE;
+}
+
+#camp-filter button.is-checked, #camp-filter button.is-selected {
+  background-color: #95268F;
+  color: white;
+}

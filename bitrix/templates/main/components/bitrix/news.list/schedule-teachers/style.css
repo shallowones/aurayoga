@@ -1,0 +1,65 @@
+div.news-list img.preview_picture
+{
+	float:left;
+	margin:0 4px 6px 0;
+}
+
+.news-date-time {
+	color:#486DAA;
+}
+
+h1.camp-caption {
+  margin-bottom: 4px !important;
+}
+
+h1.camp-caption.inner {
+  margin-top: 50px;
+}
+
+h1.camp-caption a {
+  color: #960f7e;
+}
+
+tr.past,
+tr.past a {
+  color: #aaa;
+}
+
+table.month td { width: 4%; }
+table.month td + td { width: 8%; }
+table.month td + td + td { width:38%; }
+table.month td + td + td + td { width:50%; }
+table.month td.date-s, table.month td.date-e { cursor: pointer; }
+
+span.arrow {
+  position: relative;
+  left: 10px;
+  top: -2px;
+  cursor: pointer;
+}
+
+p.month {
+  line-height: 24px;
+  margin: 5px 0 10px;
+  padding: 5px 10px;
+  width: 100px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+p.month:hover,
+p.month:hover > a {
+  text-decoration: underline;
+  color: #95268f;
+}
+
+p.month a {
+  outline: none;
+}
+
+p.month span {
+  float: right;
+  position: relative;
+  top: -2px;
+  font-size: large;
+}

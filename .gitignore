@@ -1,4 +1,6 @@
-/bitrix
+bitrix/*
+!bitrix/templates
+!bitrix/components/ugraweb
 /upload
 /.idea
 /.vagrant
