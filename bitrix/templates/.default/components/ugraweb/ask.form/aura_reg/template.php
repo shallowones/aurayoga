@@ -21,18 +21,12 @@ while ($ob = $res->GetNextElement())
 ?>
 
 <?// Вывод формы для вопроса?>
-<link href="/jquery-ui/jquery-ui.min.css" type="text/css" rel="stylesheet"></link> 
- 
-<script src="/jquery-ui/jquery-ui.min.js"></script>
 
-<script src="/jquery-ui/jquery-ui.datepicker-ru.js"></script>
-
-<h2 id="askform" class="contacts__h form-space-label">Отправить заявку</h2>
-<form action="<?=POST_FORM_ACTION_URI?>#askform" method="post" id="form-ask" enctype="multipart/form-data">
+<form action="#askform" method="post" id="form-ask">
 	<?// Вывод сообщение об успешной отправке?>
 	<?if($_SESSION['SEND_REQUEST_OK']):?>
 		<div class="form-success-request"><?=$arParams['OK_TEXT']?></div>
-		<?//$_SESSION['SEND_REQUEST_OK'] = 0;?>
+		<?$_SESSION['SEND_REQUEST_OK'] = 0;?>
 	<?endif;?>
 	<?
 	// Вывод ошибок, если есть
@@ -42,6 +36,7 @@ while ($ob = $res->GetNextElement())
 		</div>
 	<?endif;
 	?>
+
 	<div class="form-line">
 		<label for="form-name" class="form-label form-label_width_same">ФИО:<span class="required-mark">*</span></label>
 		<input type="text" name="question-name" id="c-name" class="custom-input" value="<?=$arResult["question-name"]?>" required>
@@ -66,7 +61,7 @@ while ($ob = $res->GetNextElement())
 	</div>
         <div class="form-line form-label-left-space field-type-place">
 		<label for="form-place" class="form-label form-label_width_same">Место проведения йога-лагеря:<span class="required-mark">*</span></label>
-		<select id="place" name="question-place" class="custom-select js-custom-select" onchange="SwitchNutrition()" required>
+		<select id="place" name="question-place" class="custom-select js-custom-select" onchange="SwitchNutrition()" >
 			<option <?if(empty($arResult["question-place"])):?>selected=""<?endif?> value="" default disabled>- не выбрано -</option>
 			<?foreach($arResult["place"] as $key => $value):?>
 <?
@@ -156,19 +151,23 @@ if (empty($settings)) $settings = RenderSettings::getInstance();
 		<p><span class="required-mark">*</span> — поля, обязательные для заполнения</p>
 	</div>
 	<div class="to-right">
-		<input type="submit" name="submit-ask" value="Отправить" class="button button_space_right <?if($_SESSION['SEND_REQUEST_OK']) echo 'success';?>">
-	</div>
+		<input type="submit" id="sub" name="submit-ask" value="Отправить" class="button button_space_right <?if($_SESSION['SEND_REQUEST_OK']) echo 'success';?>">
+    </div>
 	<?if($_SESSION['SEND_REQUEST_OK']):?>
 		<div class="form-success-request"><?=$arParams['OK_TEXT']?></div>
-<script>
-$(window).load(function() {
-  yaCounter24884984.reachGoal('zayvka');
-});
-</script>
+            <script>
+            $(window).load(function() {
+              yaCounter24884984.reachGoal('zayvka');
+            });
+            </script>
 		<?$_SESSION['SEND_REQUEST_OK'] = 0;?>
 	<?endif;?>
+
+
+    <hr>
+    <div class="to-right infobox">
+        <p><b>Если у вас возникли проблемы с отправкой заявки</b>, пожалуйста, продублируйте её на почту куратору соответствующего лагеря<br>(адреса слева от формы).<br>Если возможно, приложите к письму скриншот (копию экрана)<br>с формой заявки или укажите данные, которые вы вводили в форму.<br>ОМ</p>
+    </div>
+
 </form>
-<hr>
-	<div class="to-right infobox">
-		<p><b>Если у вас возникли проблемы с отправкой заявки</b>, пожалуйста, продублируйте её на почту куратору соответствующего лагеря<br>(адреса слева от формы).<br>Если возможно, приложите к письму скриншот (копию экрана)<br>с формой заявки или укажите данные, которые вы вводили в форму.<br>ОМ</p>
-	</div>
+

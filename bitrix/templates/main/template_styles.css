@@ -1749,6 +1749,10 @@ code {
             position: relative;
             margin-left: -10px;
             }
+			.caroufredsel_wrapper
+			{
+				height: 106px !important;
+			}
             .carousel__lst {
                 margin: 0;
                 padding: 0;

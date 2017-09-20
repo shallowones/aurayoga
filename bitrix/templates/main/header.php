@@ -28,7 +28,12 @@ include_once($_SERVER["DOCUMENT_ROOT"]."/render/site_favicon.php");
     <script src="<?=SITE_TEMPLATE_PATH?>/js/slider/jquery.transit.min.js"></script>
     <script src="<?=SITE_TEMPLATE_PATH?>/js/slider/jquery.ba-throttle-debounce.min.js"></script>
 	<script src="<?=SITE_TEMPLATE_PATH?>/js/js.js?v6"></script>
-<script src="<?=CUtil::GetAdditionalFileURL('/bitrix/components/ugraweb/ask.form/order_form.js');?>"></script>
+    <link href="/jquery-ui/jquery-ui.min.css" type="text/css" rel="stylesheet"/>
+
+    <script src="/jquery-ui/jquery-ui.min.js"></script>
+
+    <script src="/jquery-ui/jquery-ui.datepicker-ru.js"></script>
+    <script type="application/javascript" src="<?=CUtil::GetAdditionalFileURL('/bitrix/components/ugraweb/ask.form/order_form.js');?>"></script>
 <?
 include_once($_SERVER["DOCUMENT_ROOT"]."/render/site.php");
 ?>

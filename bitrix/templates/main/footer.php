@@ -234,16 +234,17 @@
             </div><!-- contacts__col_tp_1 -->
             <div class="contacts__col contacts__col_tp_2">
                 <a id="contacts"></a>
+                <h2 id="askform" class="contacts__h form-space-label">Отправить заявку</h2>
                 <?
 
                 $APPLICATION->IncludeComponent("ugraweb:ask.form", "aura_reg", array(
-                    "EMAIL_TO" => "bpa@ugraweb.ru",
-                    "OK_TEXT" => "Ваша заявка принята, благодарим!",
-                    "USE_CAPTCHA" => "Y",
-                    "IBLOCK_ID" => "5"
-                ),
-                    false
-                );
+	"EMAIL_TO" => "bpa@ugraweb.ru",
+	"OK_TEXT" => "Ваша заявка принята, благодарим!",
+	"USE_CAPTCHA" => "Y",
+	"IBLOCK_ID" => "5"
+	),
+	false
+);
 
                 ?>
             </div>
