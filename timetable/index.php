@@ -3,7 +3,8 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Расписание");
 ?>
 <a name="calendar"></a>
-<a href="/calendar/#table" title="Посмотреть на календаре"><img src="/calendar/images/calendar.png" style="float:right;" />
+<a href="/calendar/#table" title="Посмотреть на календаре" class="calendar-link">
+    <img src="/calendar/images/calendar.png" style="float:right;" />
   <span style="float: right; position: relative; top: 4px; right: 5px;">Календарь</span>
 </a>
 <?$APPLICATION->IncludeComponent("bitrix:news.list", "schedule-teachers", array(

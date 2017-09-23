@@ -4,7 +4,7 @@
 ?>
 
 <? if ($arResult['ITEMS']): ?>
-    <table style="border-collapse: collapse;" class="custom-table">
+    <table style="border-collapse: collapse;" class="custom-table terms">
         <tbody>
         <tr class="custom-table__header">
             <td style="border-image: initial;">Название лагеря</td>
