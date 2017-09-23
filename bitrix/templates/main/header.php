@@ -10,11 +10,16 @@
 <?
 include_once($_SERVER["DOCUMENT_ROOT"]."/render/site_favicon.php");
 ?>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-	<link rel="stylesheet" href="<?=SITE_TEMPLATE_PATH?>/normalize.css">
+	<link rel="stylesheet" href="<?=SITE_TEMPLATE_PATH?>/main.css">
+	<link rel="stylesheet" href="<? echo SITE_TEMPLATE_PATH . '/adaptive.css?' . filemtime($_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/adaptive.css') ?>">
 
 	<?$APPLICATION->ShowHead();?>
 	<title><?$APPLICATION->ShowTitle();?> - Йога-лагерь "Аура"</title>
+
 
 	<!--[if lt IE 9]> <script src="<?=SITE_TEMPLATE_PATH?>/js/html5.js"></script><![endif]-->
 	<script src="<?=SITE_TEMPLATE_PATH?>/js/jquery-1.7.2.min.js"></script>
@@ -27,8 +32,14 @@ include_once($_SERVER["DOCUMENT_ROOT"]."/render/site_favicon.php");
     <script src="<?=SITE_TEMPLATE_PATH?>/js/slider/jquery.touchSwipe.min.js"></script>
     <script src="<?=SITE_TEMPLATE_PATH?>/js/slider/jquery.transit.min.js"></script>
     <script src="<?=SITE_TEMPLATE_PATH?>/js/slider/jquery.ba-throttle-debounce.min.js"></script>
-	<script src="<?=SITE_TEMPLATE_PATH?>/js/js.js?v6"></script>
-<script src="<?=CUtil::GetAdditionalFileURL('/bitrix/components/ugraweb/ask.form/order_form.js');?>"></script>
+	<script src="<?=SITE_TEMPLATE_PATH?>/js/js.js"></script>
+	<script src="<?=SITE_TEMPLATE_PATH?>/js/mobile.js"></script>
+    <link href="/jquery-ui/jquery-ui.min.css" type="text/css" rel="stylesheet"/>
+
+    <script src="/jquery-ui/jquery-ui.min.js"></script>
+
+    <script src="/jquery-ui/jquery-ui.datepicker-ru.js"></script>
+    <script type="application/javascript" src="<?=CUtil::GetAdditionalFileURL('/bitrix/components/ugraweb/ask.form/order_form.js');?>"></script>
 <?
 include_once($_SERVER["DOCUMENT_ROOT"]."/render/site.php");
 ?>
@@ -46,6 +57,10 @@ include_once($_SERVER["DOCUMENT_ROOT"]."/render/site.php");
 	
 		<header class="header">
 			<div class="header__c">
+
+                <button type="button" value=".mobile" id="menu-icon">
+                    <span></span><span></span><span></span><span></span>
+                </button>
 
 				<div class="header-l-nav">
 					<ul class="header-l-nav__lst font-1">
@@ -67,8 +82,8 @@ include_once($_SERVER["DOCUMENT_ROOT"]."/render/site.php");
 				</div>
 					
 				<form action="/search/" class="search-form">
-					<input type="text" name="q" id="search" value="" placeholder="Поиск" class="search-form-input"><!-- 
-				 --><input type="submit" name="s" value="" class="search-form-submit">
+					<input type="text" name="q" id="search" value="" placeholder="Поиск" class="search-form-input">
+				    <input type="submit" name="s" value="" class="search-form-submit">
 				</form>
 					
 				<div class="auth">
@@ -85,23 +100,69 @@ include_once($_SERVER["DOCUMENT_ROOT"]."/render/site.php");
 
 			</div><!-- header__c -->
 		</header><!-- header -->
-		<div class="main-nav font-2">
-		<?$APPLICATION->IncludeComponent("bitrix:menu", "top-menu", Array(
-			"ROOT_MENU_TYPE" => "top",	// Тип меню для первого уровня
-			"MENU_CACHE_TYPE" => "N",	// Тип кеширования
-			"MENU_CACHE_TIME" => "3600",	// Время кеширования (сек.)
-			"MENU_CACHE_USE_GROUPS" => "Y",	// Учитывать права доступа
-			"MENU_CACHE_GET_VARS" => "",	// Значимые переменные запроса
-			"MAX_LEVEL" => "1",	// Уровень вложенности меню
-			"CHILD_MENU_TYPE" => "left",	// Тип меню для остальных уровней
-			"USE_EXT" => "N",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
-			"DELAY" => "N",	// Откладывать выполнение шаблона меню
-			"ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
-			),
-			false
-		);?>
-		</div>
-		<div class="clearfix-block"></div>
+        <div class="mobile-none">
+            <div class="main-nav font-2">
+                <?$APPLICATION->IncludeComponent("bitrix:menu", "top-menu", Array(
+                    "ROOT_MENU_TYPE" => "top",	// Тип меню для первого уровня
+                    "MENU_CACHE_TYPE" => "N",	// Тип кеширования
+                    "MENU_CACHE_TIME" => "3600",	// Время кеширования (сек.)
+                    "MENU_CACHE_USE_GROUPS" => "Y",	// Учитывать права доступа
+                    "MENU_CACHE_GET_VARS" => "",	// Значимые переменные запроса
+                    "MAX_LEVEL" => "1",	// Уровень вложенности меню
+                    "CHILD_MENU_TYPE" => "left",	// Тип меню для остальных уровней
+                    "USE_EXT" => "N",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
+                    "DELAY" => "N",	// Откладывать выполнение шаблона меню
+                    "ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
+                ),
+                    false
+                );?>
+            </div>
+        </div>
+        <div class="clearfix-block"></div>
+
+        <div class="mobile">
+            <div class="wrapper">
+                <div class="mobile-block flex">
+                    <div class="left">
+                        <a href="#contacts" class="mobile__link icon contacts"></a>
+                        <a href="/forum/" class="mobile__link icon forum"></a>
+                        <a href="mailto:aura@oum.ru" title="Напишите нам" class="mobile__link icon mail"></a>
+                    </div>
+                    <div class="right">
+                        <? if ($USER->IsAuthorized()): ?>
+                            <a href="/profile/" class="mobile__link">Профиль</a> /
+                            <a href="/?logout=yes" class="mobile__link">Выход</a>
+                        <? else: ?>
+                            <a href="/login/" class="mobile__link">Войти</a>
+                        <? endif; ?>
+                    </div>
+                </div>
+                <div class="mobile-block">
+                    <form action="/search/" class="mobile-search">
+                        <input name="q" id="search" placeholder="Поиск" class="mobile-search__input">
+                        <button name="s" class="mobile-search__button"></button>
+                    </form>
+                </div>
+                <div class="mobile-block">
+                    <? $APPLICATION->IncludeComponent("bitrix:menu", "top-menu", Array(
+                        "ROOT_MENU_TYPE" => "top",
+                        "MENU_CACHE_TYPE" => "N",
+                        "MENU_CACHE_TIME" => "3600",
+                        "MENU_CACHE_USE_GROUPS" => "Y",
+                        "MENU_CACHE_GET_VARS" => "",
+                        "MAX_LEVEL" => "1",
+                        "CHILD_MENU_TYPE" => "left",
+                        "USE_EXT" => "N",
+                        "DELAY" => "N",
+                        "ALLOW_MULTI_SELECT" => "N",
+                    ),
+                        false
+                    ); ?>
+                </div>
+            </div>
+        </div>
+
+
 		<?if (defined("X_HOME_PAGE")):?>
 		<?$APPLICATION->IncludeComponent("bitrix:news.list", "main.camps", array(
 			"IBLOCK_TYPE" => "camps",

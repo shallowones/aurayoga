@@ -177,7 +177,6 @@
         <div class="footer__c">
 
             <div class="contacts__col contacts__col_tp_1">
-
                 <h2 id="contact-list" class="contacts__h">Контакты</h2>
                 <? //$APPLICATION->IncludeFile(SITE_TEMPLATE_PATH. "/inc/ftr_contacts.php",Array(),Array("MODE"=>"html"));?>
                 <? $APPLICATION->IncludeComponent("bitrix:news.list", "contacts", array(
@@ -229,13 +228,11 @@
                 ),
                     false
                 ); ?>
-
-
-            </div><!-- contacts__col_tp_1 -->
+            </div>
             <div class="contacts__col contacts__col_tp_2">
                 <a id="contacts"></a>
+                <h2 id="askform" class="contacts__h form-space-label">Отправить заявку</h2>
                 <?
-
                 $APPLICATION->IncludeComponent("ugraweb:ask.form", "aura_reg", array(
                     "EMAIL_TO" => "bpa@ugraweb.ru",
                     "OK_TEXT" => "Ваша заявка принята, благодарим!",
@@ -244,24 +241,22 @@
                 ),
                     false
                 );
-
                 ?>
+                <div class="social">
+                    <h2 class="contacts__h">Мы в социальных сетях</h2>
+                    <? $APPLICATION->IncludeFile(SITE_TEMPLATE_PATH . "/inc/ftr_social.php", Array(), Array("MODE" => "php")); ?>
+                </div>
             </div>
-
-            <div class="social">
-                <h2 class="contacts__h">Мы в социальных сетях</h2>
-                <? $APPLICATION->IncludeFile(SITE_TEMPLATE_PATH . "/inc/ftr_social.php", Array(), Array("MODE" => "php")); ?>
-            </div><!-- social -->
 
             <div class="clearfix-block"></div>
 
-        </div><!-- footer__c -->
+        </div>
 
     </section>
 
     <section class="footer-nav">
 
-        <div class="footer__c">
+        <div class="footer__c footer-bottom">
 
             <? $APPLICATION->IncludeComponent("bitrix:menu", "down-menu", array(
                 "ROOT_MENU_TYPE" => "down",

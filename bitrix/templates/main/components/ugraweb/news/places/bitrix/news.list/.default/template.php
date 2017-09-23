@@ -1,6 +1,6 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <?$placeMark = 2?>
-<section class="top-page">
+<section class="top-page map">
 	
 	<div class="page__c page__c_lt_map">
 				
